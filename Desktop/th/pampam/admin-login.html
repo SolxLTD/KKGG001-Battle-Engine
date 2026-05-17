@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Admin login for the PAMA Reality & Tech Int'l Ltd website.">
+<title>PAMA Reality & Tech Int'l Ltd | Admin Login</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;700;800&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body data-page="admin-login">
+<header class="site-header">
+    <a class="logo" href="index.html" aria-label="PAMA Reality and Tech International Limited home">
+        <img src="logo.svg" alt="PAMA Reality and Tech logo">
+        <span class="logo-text">
+            PAMA Reality & Tech
+            <span>Int'l Ltd</span>
+        </span>
+    </a>
+    <nav aria-label="Primary">
+        <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="menu.html">Services</a></li>
+            <li><a href="reservation.html">Contact</a></li>
+            <li><a href="admin-login.html" aria-current="page">Admin</a></li>
+        </ul>
+    </nav>
+</header>
+
+<main class="auth-page">
+    <section class="auth-card">
+        <div class="section-heading">
+            <p class="eyebrow">Admin Access</p>
+            <h1>Sign in to manage projects and view contact submissions.</h1>
+        </div>
+        <p class="reservation-intro">Only approved administrators should use this area.</p>
+
+        <form id="admin-login-form" class="admin-form-shell" novalidate>
+            <label for="admin-password">Admin Password</label>
+            <input type="password" id="admin-password" name="admin-password" placeholder="Enter admin password" autocomplete="current-password" required>
+            <button type="submit">Sign In</button>
+            <p id="admin-login-status" class="form-status" aria-live="polite"></p>
+        </form>
+    </section>
+</main>
+
+<footer>
+    <p>&copy; 2026 PAMA Reality & Tech Int'l Ltd</p>
+    <p class="footer-note">Protected access for website administration only.</p>
+</footer>
+
+<script src="script.js"></script>
+</body>
+</html>

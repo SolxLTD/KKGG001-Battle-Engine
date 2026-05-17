@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Admin dashboard for managing featured projects on the PAMA Reality & Tech Int'l Ltd website.">
+<title>PAMA Reality & Tech Int'l Ltd | Admin Dashboard</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;700;800&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+
+<body data-page="dashboard">
+<header class="site-header">
+    <a class="logo" href="index.html" aria-label="PAMA Reality and Tech International Limited home">
+        <img src="logo.svg" alt="PAMA Reality and Tech logo">
+        <span class="logo-text">
+            PAMA Reality & Tech
+            <span>Int'l Ltd</span>
+        </span>
+    </a>
+    <nav aria-label="Primary">
+        <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="menu.html">Services</a></li>
+            <li><a href="reservation.html">Contact</a></li>
+            <li><a href="dashboard.html" aria-current="page">Admin</a></li>
+        </ul>
+    </nav>
+</header>
+
+<main class="dashboard-page">
+    <section class="dashboard-hero">
+        <div class="dashboard-toolbar">
+            <div>
+                <div class="section-heading">
+                    <p class="eyebrow">Admin Dashboard</p>
+                    <h1>Manage featured projects and incoming contact requests.</h1>
+                </div>
+                <p class="reservation-intro">
+                    Projects and contact submissions are now saved by the backend and available only through admin access.
+                </p>
+            </div>
+            <button type="button" id="admin-logout-button" class="btn btn-logout">Log Out</button>
+        </div>
+    </section>
+
+    <section class="dashboard-grid">
+        <div class="dashboard-card">
+            <div class="section-heading">
+                <p class="eyebrow">Add Project</p>
+                <h2>New gallery item</h2>
+            </div>
+            <form id="project-form" class="admin-form" novalidate>
+                <label for="project-title">Project Title</label>
+                <input type="text" id="project-title" name="project-title" placeholder="Road construction phase one" maxlength="90" required>
+
+                <label for="project-category">Category</label>
+                <input type="text" id="project-category" name="project-category" placeholder="Infrastructure, Estate, Residential..." maxlength="60" required>
+
+                <label for="project-caption">Caption</label>
+                <textarea id="project-caption" name="project-caption" rows="4" placeholder="Write a caption that matches the uploaded photo." maxlength="220" required></textarea>
+
+                <label for="project-image">Project Photo</label>
+                <input type="file" id="project-image" name="project-image" accept="image/*" required>
+
+                <div class="upload-preview-wrap">
+                    <img id="project-preview" class="upload-preview" alt="Project preview will appear here">
+                </div>
+
+                <button type="submit">Add Project</button>
+                <p id="project-form-status" class="form-status" aria-live="polite"></p>
+            </form>
+        </div>
+
+        <div class="dashboard-card">
+            <div class="section-heading">
+                <p class="eyebrow">Current Projects</p>
+                <h2>Manage gallery</h2>
+            </div>
+            <div id="dashboard-projects" class="dashboard-projects"></div>
+        </div>
+    </section>
+
+    <section class="dashboard-card dashboard-inbox">
+        <div class="section-heading">
+            <p class="eyebrow">Contact Inbox</p>
+            <h2>Saved project inquiries</h2>
+        </div>
+        <div id="submission-list" class="submission-list"></div>
+    </section>
+</main>
+
+<footer>
+    <p>&copy; 2026 PAMA Reality & Tech Int'l Ltd</p>
+    <p class="footer-note">Use this dashboard to keep featured projects aligned with real site work.</p>
+</footer>
+
+<script src="script.js"></script>
+</body>
+</html>

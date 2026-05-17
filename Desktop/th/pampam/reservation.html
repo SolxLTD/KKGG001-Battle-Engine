@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Contact PAMA Reality & Tech Int'l Ltd for building construction, infrastructure, surveying, and engineering consultancy projects.">
+<title>PAMA Reality & Tech Int'l Ltd | Contact</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;700;800&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+
+<body data-page="contact">
+<header class="site-header">
+    <a class="logo" href="index.html" aria-label="PAMA Reality and Tech International Limited home">
+        <img src="logo.svg" alt="PAMA Reality and Tech logo">
+        <span class="logo-text">
+            PAMA Reality & Tech
+            <span>Int'l Ltd</span>
+        </span>
+    </a>
+    <nav aria-label="Primary">
+        <ul>
+            <li><a href="index.html">Home</a></li>
+            <li><a href="menu.html">Services</a></li>
+            <li><a href="reservation.html" aria-current="page">Contact</a></li>
+            <li><a href="admin-login.html">Admin</a></li>
+        </ul>
+    </nav>
+</header>
+
+<main>
+    <section class="reservation">
+        <div class="section-heading">
+            <p class="eyebrow">Contact Us</p>
+            <h1>Send us your project brief.</h1>
+        </div>
+        <p class="reservation-intro">
+            Share your project details and your request will be saved directly to the protected admin dashboard for follow-up.
+        </p>
+
+        <div class="contact-layout">
+            <form id="reservation-form" novalidate>
+                <div class="honeypot" aria-hidden="true">
+                    <label for="website">Website</label>
+                    <input type="text" id="website" name="website" tabindex="-1" autocomplete="off">
+                </div>
+
+                <label for="name">Full Name</label>
+                <input type="text" id="name" name="name" placeholder="Your full name" minlength="2" maxlength="80" autocomplete="name" required>
+
+                <label for="phone">Phone Number</label>
+                <input type="tel" id="phone" name="phone" placeholder="Your phone or WhatsApp number" inputmode="tel" autocomplete="tel" pattern="^[0-9+()\\-\\s]{7,20}$" required>
+
+                <label for="project-type">Project Type</label>
+                <input type="text" id="project-type" name="project-type" placeholder="Building, road, drainage, survey, consultancy..." maxlength="100" required>
+
+                <label for="location">Project Location</label>
+                <input type="text" id="location" name="location" placeholder="City, state, or site address" maxlength="100" required>
+
+                <label for="timeline">Timeline</label>
+                <input type="text" id="timeline" name="timeline" placeholder="Immediate, 1 month, planning stage..." maxlength="100" required>
+
+                <label for="message">Project Brief</label>
+                <textarea id="message" name="message" rows="6" placeholder="Describe the scope, budget direction, site status, or support you need." maxlength="800" required></textarea>
+
+                <button type="submit">Send Project Request</button>
+                <p id="form-status" class="form-status" aria-live="polite"></p>
+            </form>
+
+            <aside class="booking-help">
+                <h2>Office Information</h2>
+                <div class="contact-points">
+                    <p><strong>Address:</strong> 25B, Isiuwa Street, Benin City</p>
+                    <p><strong>Phone:</strong> <a href="tel:+2348037203930">+234 803 720 3930</a></p>
+                    <p><strong>WhatsApp:</strong> <a href="https://wa.me/2348037203930" target="_blank" rel="noopener noreferrer">Chat with PAMA</a></p>
+                    <p><strong>Legal Status:</strong> Private Limited Company</p>
+                    <p><strong>Registered Authority:</strong> Corporate Affairs Commission, Nigeria</p>
+                </div>
+                <p class="contact-note">We are committed to safety, quality workmanship, environmental sustainability, and continuous improvement across all operations.</p>
+            </aside>
+        </div>
+
+        <section class="policy-section">
+            <div class="section-heading">
+                <p class="eyebrow">Health, Safety & Quality</p>
+                <h2>Our operating commitment on every project.</h2>
+            </div>
+            <div class="policy-grid">
+                <article class="policy-card">
+                    <h3>Safety First</h3>
+                    <p>Maintaining strict safety protocols on all project sites and work environments.</p>
+                </article>
+                <article class="policy-card">
+                    <h3>Quality Workmanship</h3>
+                    <p>Delivering high-quality technical output and construction finishes that meet expectations.</p>
+                </article>
+                <article class="policy-card">
+                    <h3>Sustainable Practice</h3>
+                    <p>Supporting environmental responsibility and continuous improvement across operations.</p>
+                </article>
+            </div>
+        </section>
+    </section>
+</main>
+
+<footer>
+    <p>&copy; 2026 PAMA Reality & Tech Int'l Ltd</p>
+    <p class="footer-note">Forward-thinking construction and engineering delivery from concept development to completion.</p>
+</footer>
+
+<script src="script.js"></script>
+</body>
+</html>
