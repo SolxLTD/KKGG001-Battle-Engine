@@ -1,6 +1,6 @@
 # KKGG001-Battle-Engine
-pokemon-tcg-ai-battle
-
+Agnostic Heuristic Agent for Pokémon TCG Battles
+An explainable, priority scored policy paired with a type-hedged deck, stress tested via self play across matchups and turn order
 
 
 1. Battle Engine
