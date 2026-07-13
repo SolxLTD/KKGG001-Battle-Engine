@@ -1,5 +1,4 @@
 """
-card_data.py
 ------------
 Loads card metadata from the competition-provided CSV schema:
 Card ID, Card Name, Expansion, Collection No., Stage, Category,
