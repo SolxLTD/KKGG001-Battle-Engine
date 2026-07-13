@@ -20,7 +20,7 @@ from typing import Optional, List, Dict
 @dataclass
 class Attack:
     name: str
-    cost: str          # e.g. "FF" = 2 Fire energy, "C" = 1 colorless
+    cost: str
     damage: int
 
     def cost_dict(self) -> Dict[str, int]:
@@ -39,8 +39,8 @@ class Card:
     name: str
     expansion: str
     collection_no: str
-    stage: str            # Basic / Stage1 / Stage2 / Trainer / Energy
-    category: str         # Pokemon / Trainer / Energy
+    stage: str
+    category: str
     previous_stage: Optional[str]
     hp: Optional[int]
     ptype: Optional[str]
