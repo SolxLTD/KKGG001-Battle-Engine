@@ -1,25 +1,3 @@
-"""
-deck_builder.py
----------------
-Builds a legal 60-card deck from the available card pool.
-
-Design goals (these map directly onto the Strategy Category rubric:
-"deck design concept" + "avoids over-reliance on specific matchups"):
-
-1. Pick ONE primary type family (a fully evolved evolution line) as the
-   deck's win condition, so the strategy narrative is coherent and
-   explainable (rubric: "clearly articulated approach").
-2. Include a secondary type as a matchup hedge, so the deck isn't
-   auto-countered by a single Weakness type (rubric: "avoid
-   over-reliance on ... matchups").
-3. Keep an energy curve that favors early attackers (Basics that can
-   attack turn 1-2) so the agent isn't starved for actions early
-   (this is what "stability across repeated matches" partly depends on
-   -- a deck that bricks on a bad draw creates high variance).
-4. Respect real deck-building legality: exactly 60 cards, max 4 copies
-   of any card (except basic Energy), full evolution lines only.
-"""
-
 import random
 from collections import defaultdict
 from typing import Dict, List
@@ -52,9 +30,7 @@ def score_line(line: List[Card]) -> float:
     score += (top.hp or 0) * 0.5
     if top.attacks:
         best_atk = max(top.attacks, key=lambda a: a.damage)
-        # damage per energy invested -- efficiency matters more than raw number
         score += best_atk.damage / max(1, best_atk.energy_count()) * 3
-    # Shorter lines (Basic/Stage1 only) are faster and more consistent
     score += (3 - len(line)) * 15
     return score
 
@@ -70,8 +46,6 @@ def build_deck(cards: Dict[str, Card], primary_type: str = None,
         if c.is_basic:
             basics_by_type[c.ptype].append(c)
 
-    # Auto-pick primary type = the evolution line with the best score,
-    # unless caller specifies one (lets you target a specific matchup plan).
     if primary_type is None:
         best_line, best_score = None, -1
         for t, basics in basics_by_type.items():
@@ -83,15 +57,12 @@ def build_deck(cards: Dict[str, Card], primary_type: str = None,
     primary_line = _evolution_line(cards, basics_by_type[primary_type][0])
 
     if secondary_type is None:
-        # Pick a type whose weakness isn't the primary type's weakness
-        # (hedge against a single bad matchup)
         candidates = [t for t in basics_by_type if t != primary_type]
         secondary_type = candidates[0] if candidates else primary_type
     secondary_line = _evolution_line(cards, basics_by_type[secondary_type][0])
 
     decklist: Dict[str, int] = defaultdict(int)
 
-    # --- Pokemon package (primary: 4 copies of each stage; secondary: 3) ---
     for c in primary_line:
         decklist[c.card_id] += min(MAX_COPIES_NONENERGY, 4)
     for c in secondary_line:
@@ -99,7 +70,6 @@ def build_deck(cards: Dict[str, Card], primary_type: str = None,
 
     pokemon_count = sum(decklist.values())
 
-    # --- Trainers (draw/search/heal package, ~15 cards) ---
     trainer_target = 15
     t_i = 0
     while sum(v for k, v in decklist.items() if k in {t.card_id for t in trainers}) < trainer_target and trainers:
@@ -110,7 +80,6 @@ def build_deck(cards: Dict[str, Card], primary_type: str = None,
         if t_i > 200:
             break
 
-    # --- Energy (fill remainder, split across the two colors we need) ---
     used = sum(decklist.values())
     remaining = DECK_SIZE - used
     primary_energy_type = _energy_card_for_type(energies, primary_type)
